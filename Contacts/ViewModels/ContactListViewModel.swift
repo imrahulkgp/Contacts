@@ -17,9 +17,10 @@ class ContactListViewModel {
         }
     }
     
-    func fetchContacts() -> [ContactsDataItem] {
+    @discardableResult func fetchContacts() -> [ContactsDataItem] {
         if let decoded  = UserDefaults.standard.data(forKey: Constants.dataPath) {
-            return NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [ContactsDataItem] ?? []
+            contactsList = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [ContactsDataItem] ?? []
+            return contactsList
         }
         return []
     }

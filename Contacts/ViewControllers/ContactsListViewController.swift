@@ -18,6 +18,7 @@ class ContactsListViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Meesho Contacts"
         self.viewModel = ContactListViewModel()
+        self.viewModel.fetchContacts()
         self.tableView.reloadData()
     }
 
